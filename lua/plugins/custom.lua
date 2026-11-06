@@ -71,6 +71,11 @@ return {
         },
       },
     },
+    -- 覆寫 LazyVim 的 config：其 Windows 版會呼叫 uname 並套用錯誤的 .dylib 路徑。
+    -- rustaceanvim 內建會自動從 Mason 找到 codelldb 與 liblldb.dll。
+    config = function(_, opts)
+      vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
+    end,
   },
 
   -- ======== C/C++ + SQL LSP 伺服器配置 ========

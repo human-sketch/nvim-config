@@ -15,7 +15,7 @@ return {
         "shfmt",
         "sqlfluff",
         "hadolint",
-        "semgrep",
+        -- semgrep 官方不支援 Windows（需 WSL/Docker），不列入自動安裝
         "clang-format",
       })
     end,
@@ -30,7 +30,7 @@ return {
         "pyright",
         "ts_ls",
         "zls",
-        "sqls",
+        -- sqls 使用官方 Windows 預編譯檔（Mason 版需 C 編譯器），見 mason/bin/sqls.exe
         "clangd",
         "eslint",
       },
