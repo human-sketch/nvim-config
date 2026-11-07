@@ -29,9 +29,14 @@ return {
   -- ======== Discord Rich Presence ========
   {
     "vyfor/cord.nvim",
-    build = ":Cord update",
     opts = {
       client_id = "1516308183889743902",
+      -- Windows Smart App Control 會封鎖未簽章的 cord.exe；避免自動更新換掉可用的執行檔
+      advanced = {
+        server = {
+          auto_update = false,
+        },
+      },
       display = {
         theme = "catppuccin",
         flavor = "accent",
